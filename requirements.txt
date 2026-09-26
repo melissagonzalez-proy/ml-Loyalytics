@@ -1,0 +1,5 @@
+pandas
+openpyxl
+fg-data-profiling
+jupyter
+setuptools<82
