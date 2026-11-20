@@ -1,184 +1,45 @@
-# Loyalytics
+# Predicción de churn en e-commerce
 
-Proyecto de Machine Learning desarrollado para la asignatura
-**Modelos y Simulación de Sistemas II** de la Universidad de Antioquia.
+Proyecto de ciencia de datos que analiza clientes de una plataforma de comercio electrónico y predice si abandonarán (`Churn`). Incluye EDA, imputación y preprocesamiento, entrenamiento, evaluación, calibración de umbrales y análisis PCA/UMAP.
 
-El proyecto aborda el análisis y predicción de abandono de clientes
-(customer churn) en un contexto de comercio electrónico.
-
----
-
-## Estructura del repositorio
+## Estructura
 
 ```text
-ml-Loyalytics/
-│
-├── data/
-│   └── raw/
-│       ├── .gitkeep
-│       └── E Commerce Dataset.xlsx
-│
-├── notebooks/
-│   └── 01_exploracion_datos.ipynb
-│
-├── reports/
-│   └── reporte_eda_loyalytics.html
-│
-├── .gitignore
-├── README.md
-└── requirements.txt
+notebooks/       Notebooks numerados del análisis
+src/             Utilidades compartidas
+data/            Datos locales y estados intermedios
+models/          Espacio reservado para artefactos locales
+reports/         Tablas y resultados
+reports/figures/ Figuras generadas
 ```
 
-### `data/raw/`
+## Ejecutar en local (VS Code)
 
-Contiene el dataset original utilizado en el proyecto.
+1. Cree el entorno virtual e instale dependencias:
 
-### `notebooks/`
-
-Contiene los notebooks utilizados para la exploración y análisis
-de los datos.
-
-### `reports/`
-
-Contiene los reportes generados durante el desarrollo del proyecto.
-
----
-
-## Dataset
-
-El proyecto utiliza el dataset **Ecommerce Customer Churn Analysis and Prediction**.
-
-- **Fuente:** [Kaggle](https://www.kaggle.com/)
-- **Archivo utilizado:** `E Commerce Dataset.xlsx`
-
-El archivo se encuentra ubicado en:
-
-```
-data/raw/E Commerce Dataset.xlsx
-```
-
----
-
-## Requisitos
-
-Para ejecutar el proyecto localmente se necesita:
-
-- Python 3.10 o superior.
-- Jupyter Notebook o Visual Studio Code con soporte para notebooks.
-
----
-
-## Instalación
-
-1. Clonar el repositorio:
-
-   ```bash
-   git clone <URL_DEL_REPOSITORIO>
-   ```
-
-2. Entrar al proyecto:
-
-   ```bash
-   cd ml-Loyalytics
-   ```
-
-3. Crear un entorno virtual (Windows):
-
-   ```bash
+   ```powershell
    python -m venv .venv
-   ```
-
-4. Activar el entorno:
-
-   ```bash
-   .venv\Scripts\activate
-   ```
-
-5. Instalar las dependencias:
-
-   ```bash
+   .venv\Scripts\Activate.ps1
    pip install -r requirements.txt
    ```
 
----
+2. Coloque el dataset en `data/raw/E Commerce Dataset.xlsx`.
+3. Abra y ejecute los notebooks en orden: `1_eda`, `2_preprocessing`, `3_trainig`, `4_evaluation` y `5_pca_umap`.
 
-## Ejecución en Visual Studio Code
+## Ejecutar en Google Colab
 
-1. Abrir la carpeta `ml-Loyalytics` en Visual Studio Code.
-2. Instalar la extensión Jupyter si todavía no está instalada.
-3. Seleccionar el intérprete de Python correspondiente al entorno virtual.
-4. Abrir el notebook:
+1. Clone el repositorio y cambie al directorio del proyecto.
+2. Instale las dependencias:
 
+   ```python
+   %pip install -r requirements.txt
    ```
-   notebooks/01_exploracion_datos.ipynb
-   ```
 
-5. Ejecutar las celdas del notebook en orden.
+3. Coloque el dataset en `data/raw/E Commerce Dataset.xlsx` o permita que el primer notebook lo descargue desde Kaggle.
+4. Ejecute los notebooks en orden: `1_eda`, `2_preprocessing`, `3_trainig`, `4_evaluation` y `5_pca_umap`.
 
-El notebook detectará automáticamente que se está ejecutando fuera de
-Google Colab y utilizará el dataset ubicado en:
+## Dataset
 
-```
-data/raw/E Commerce Dataset.xlsx
-```
+Fuente: [E-Commerce Customer Churn Analysis and Prediction Dataset](https://www.kaggle.com/datasets/ankitverma2010/ecommerce-customer-churn-analysis-and-prediction).
 
-El reporte será generado automáticamente en:
-
-```
-reports/reporte_eda_loyalytics.html
-```
-
----
-
-## Ejecución en Google Colab
-
-El notebook también puede ejecutarse utilizando Google Colab.
-
-1. Abrir `01_exploracion_datos.ipynb` en Google Colab.
-2. Ejecutar las celdas en orden.
-3. Cuando el notebook lo solicite, seleccionar el archivo `E Commerce Dataset.xlsx`.
-4. Continuar con la ejecución del notebook.
-
-En Google Colab el reporte será generado como:
-
-```
-reporte_eda_loyalytics.html
-```
-
-El archivo puede descargarse y posteriormente incorporarse a la carpeta `reports/`.
-
----
-
-## Exploración de datos
-
-El notebook realiza una exploración inicial que incluye:
-
-- Número de muestras.
-- Número de variables.
-- Tipos de datos.
-- Estadísticas descriptivas.
-- Valores faltantes.
-- Registros duplicados.
-- Distribución de la variable objetivo `Churn`.
-- Perfilamiento automatizado mediante YData Profiling.
-
----
-
-## Reporte de EDA
-
-El análisis exploratorio automatizado se genera utilizando **YData Profiling**.
-
-El reporte resultante se encuentra en:
-
-```
-reports/reporte_eda_loyalytics.html
-```
-
----
-
-## Entregables
-
-Los resultados principales del proyecto se encuentran en la carpeta `reports/`.
-
-Entre ellos se encuentra el reporte de análisis exploratorio y el
-informe correspondiente al **Entregable I**.
+Coloque el archivo como `data/raw/E Commerce Dataset.xlsx`. El primer notebook también puede descargarlo desde Kaggle cuando esté disponible.
